@@ -32,7 +32,7 @@ public class Done_GameController : MonoBehaviour
 	public GUIText gameOverText;
     public GUIText bombMaxText;
     public GUIText finalScoreText;
-    public GUIText currentBombText;
+    public Text currentBombText;
 
     public Image controllerTest;
 
@@ -160,7 +160,7 @@ public class Done_GameController : MonoBehaviour
             Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(spawnValues.x+2f, spawnValues.x+10f), spawnValues.y, spawnValues.z);
             Quaternion spawnRotation = Quaternion.identity;
             Instantiate(hazard, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 
@@ -172,7 +172,7 @@ public class Done_GameController : MonoBehaviour
             Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(-spawnValues.x - 10f, -spawnValues.x-2f), spawnValues.y, spawnValues.z);
             Quaternion spawnRotation = Quaternion.identity;
             Instantiate(hazard, spawnPosition, spawnRotation);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
         }        
     }
 

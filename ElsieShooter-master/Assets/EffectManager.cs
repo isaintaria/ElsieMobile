@@ -11,6 +11,67 @@ using System.Net;
 using System.Threading;
 
 
+
+public static class Vibration
+{
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+    public static AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+    public static AndroidJavaObject currentActivity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
+    public static AndroidJavaObject vibrator = currentActivity.Call<AndroidJavaObject>("getSystemService", "vibrator");
+#else
+    public static AndroidJavaClass unityPlayer;
+    public static AndroidJavaObject currentActivity;
+    public static AndroidJavaObject vibrator;
+#endif
+
+    public static void Vibrate()
+    {
+        if (isAndroid())
+            vibrator.Call("vibrate");
+        else
+            Handheld.Vibrate();
+    }
+
+
+    public static void Vibrate(long milliseconds)
+    {
+        if (isAndroid())
+            vibrator.Call("vibrate", milliseconds);
+        else
+            Handheld.Vibrate();
+    }
+
+    public static void Vibrate(long[] pattern, int repeat)
+    {
+        if (isAndroid())
+            vibrator.Call("vibrate", pattern, repeat);
+        else
+            Handheld.Vibrate();
+    }
+
+    public static bool HasVibrator()
+    {
+        return isAndroid();
+    }
+
+    public static void Cancel()
+    {
+        if (isAndroid())
+            vibrator.Call("cancel");
+    }
+
+    private static bool isAndroid()
+    {
+#if UNITY_ANDROID && !UNITY_EDITOR
+	return true;
+#else
+        return false;
+#endif
+    }
+}
+
+
 //// State object for receiving data from remote device.
 //public class StateObject
 //{
@@ -74,8 +135,8 @@ using System.Threading;
 //            // Release the socket.  
 //            client.Shutdown(SocketShutdown.Both);
 //            client.Close();
-      
-   
+
+
 
 //        }
 //        catch (Exception e)
@@ -209,9 +270,9 @@ public class EffectManager : MonoBehaviour {
         if (source != null)
             source.Play();
         if (effect.bulb && Done_GameController.EnabledVisualMode)
-            EffectBulb(effect.pattern_b,loc);
+            EffectBulb((float)effect.effectTime,loc);
         if (effect.vibration && Done_GameController.EnabledHapticMode)
-            EffectVibration(effect.pattern_v,loc);
+            EffectVibration((float)effect.effectTime,loc);
                                    
     }
 
@@ -228,33 +289,35 @@ public class EffectManager : MonoBehaviour {
         }
     }
 
-    private  void EffectVibration(int pattern_v,string str ="Debug")
+    private  void EffectVibration(float effectTime,string str ="Debug")
     {
-        Debug.Log(str + "에서  진동 이펙트 발생 패턴:" + pattern_v);
-        StartCoroutine(VibeTest());
+
+        StartCoroutine(VibeTest(effectTime));
     }
 
-    private  void EffectBulb(int pattern_b, string str = "Debug")
+    private  void EffectBulb(float effectTime, string str = "Debug")
     {
-        Debug.Log(str + "에서 전구 이펙트 발생 패턴:" +pattern_b); 
-        StartCoroutine(BulbTest());
+   
+        StartCoroutine(BulbTest(effectTime));
     }
 
-    private IEnumerator BulbTest()
+    private IEnumerator BulbTest(float effectTime)
     {
         var bInstance = BluetoothAndroidWrapper.getInstance();
         bInstance.Send('3');
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(effectTime);
         bInstance.Send('4');
 
     }
 
-    private IEnumerator VibeTest()
+    private IEnumerator VibeTest(float effectTime)
     {
-
+        Debug.Log(effectTime);
         var bInstance = BluetoothAndroidWrapper.getInstance();
         bInstance.Send('1');
-        yield return new WaitForSeconds(0.6f);
+        if (useAndroidVibe)
+            Vibration.Vibrate(500);
+        yield return new WaitForSeconds(effectTime);
         bInstance.Send('2');
 
     }
@@ -306,6 +369,7 @@ public class EffectManager : MonoBehaviour {
     AudioSource audioGetBomb;// 폭탄 획득
     AudioSource audioGetBonusScore;// 보너스 점수 획득
     AudioSource audioBeamCollision;// 빔 충돌
+    public bool useAndroidVibe = true;
 
     void SetUp()
     {

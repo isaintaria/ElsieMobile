@@ -18,9 +18,11 @@ namespace Assets._Completed_Assets.Scripts.TableManager.TableItems
       //  [XmlAttribute("Speaker")]
         public bool speaker;
       //  [XmlAttribute("Pattern_Vibration")]
-        public int pattern_v;
+        public double effectTime;
       //  [XmlAttribute("Pattern_Bulb")]
         public int pattern_b;
+
+        public int pattern_v;
        
     }
     

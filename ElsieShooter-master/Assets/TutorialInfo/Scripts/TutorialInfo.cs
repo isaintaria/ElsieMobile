@@ -92,8 +92,11 @@ public class TutorialInfo : MonoBehaviour
         textBluetoothState.text = "Bluetooth Device is Connected";
     }
 
+   
+
     void Awake()
 	{
+        Application.targetFrameRate = 60;
         textBluetoothState.text = "Bluetooth Device is Disconnected. Please check device";
         bInstace =  BluetoothAndroidWrapper.getInstance();
         bInstace.connect();

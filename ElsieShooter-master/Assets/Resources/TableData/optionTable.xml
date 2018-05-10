@@ -6,6 +6,7 @@
     <speaker>0</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </FireBeam>
   <FireBomb>
     <vibration>0</vibration>
@@ -13,6 +14,7 @@
     <speaker>1</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </FireBomb>
   <Explosion_Bomb>
     <vibration>1</vibration>
@@ -20,6 +22,7 @@
     <speaker>1</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </Explosion_Bomb>
   <Destroy_Enemy>
     <vibration>0</vibration>
@@ -27,6 +30,7 @@
     <speaker>false</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </Destroy_Enemy>
   <Destroy_Player>
     <vibration>0</vibration>
@@ -34,6 +38,7 @@
     <speaker>1</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </Destroy_Player>
   <Destroy_Astroid>
     <vibration>1</vibration>
@@ -41,6 +46,7 @@
     <speaker>0</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </Destroy_Astroid>
   <GetBomb>
     <vibration>0</vibration>
@@ -48,6 +54,7 @@
     <speaker>1</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </GetBomb>
   <GetBonusScore>
     <vibration>0</vibration>
@@ -55,6 +62,7 @@
     <speaker>0</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </GetBonusScore>
   <BeamCollision>
     <vibration>1</vibration>
@@ -62,5 +70,6 @@
     <speaker>0</speaker>
     <pattern_v>0</pattern_v>
     <pattern_b>0</pattern_b>
+    <effectTime>0.4</effectTime>
   </BeamCollision>
 </OptionTable>
