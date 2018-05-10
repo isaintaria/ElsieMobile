@@ -162,19 +162,12 @@ public class Done_PlayerController : MonoBehaviour
 
     void FixedUpdate ()
 	{
-        if( IsMoveable )
+        if (IsMoveable)
         {
+            float moveHorizontal = Input.GetAxis("Horizontal");
+            float moveVertical = Input.GetAxis("Vertical");
 
-            //float moveHorizontal = Input.GetAxis("Horizontal");
-            //float moveVertical = Input.GetAxis("Vertical");
-            //  Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
-            Vector3 accelerationRaw = Input.acceleration;
-            Vector3 acceleration = FixAcceleration(accelerationRaw);
-            //   Vector3 movement = new Vector3(acceleration.x, 0.0f, acceleration.y);
-
-            Vector2 direction = touchPad.GetDirection();
-            Vector3 movement = new Vector3(direction.x, 0.0f, direction.y);
+            Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 
             GetComponent<Rigidbody>().velocity = movement * speed;
             GetComponent<Rigidbody>().position = new Vector3
@@ -182,9 +175,9 @@ public class Done_PlayerController : MonoBehaviour
                 Mathf.Clamp(GetComponent<Rigidbody>().position.x, boundary.xMin, boundary.xMax),
                 0.0f,
                 Mathf.Clamp(GetComponent<Rigidbody>().position.z, boundary.zMin, boundary.zMax)
-            );  
+            );
             GetComponent<Rigidbody>().rotation = Quaternion.Euler(0.0f, 0.0f, GetComponent<Rigidbody>().velocity.x * -tilt);
         }
-		
-	}
+
+    }
 }

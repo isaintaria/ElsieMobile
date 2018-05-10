@@ -8,7 +8,7 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: EarthMaterial
   m_Shader: {fileID: 4800000, guid: ab8f58b3dbc66b24c91b5c9c14df2aac, type: 3}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
+  m_ShaderKeywords: _EMISSION _NORMALMAP _SPECGLOSSMAP
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -19,7 +19,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: c2fa05cb71836f246b5eabf3f3c6151c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 88bb3d509bc28044b9dadfb7d18b06ac, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cube:
@@ -55,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7dfcb90673cf9a44281e7da0b32902b2, type: 3}
+        m_Texture: {fileID: 2800000, guid: ecfdd0eef96e8574b8dfa8c0f9b22f1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -63,7 +63,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NightTex:
-        m_Texture: {fileID: 2800000, guid: 8d73a1f30b7717d4f8f40e2a2128ae7e, type: 3}
+        m_Texture: {fileID: 2800000, guid: bb4222f7a29d87946a0f8d073d9e20a6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
@@ -83,7 +83,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularTex:
-        m_Texture: {fileID: 2800000, guid: 5ca5bf05f3cb3b046be353275c0ef45c, type: 3}
+        m_Texture: {fileID: 2800000, guid: a8bc30f9fc4d49043884e3b1ebfe88cf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
