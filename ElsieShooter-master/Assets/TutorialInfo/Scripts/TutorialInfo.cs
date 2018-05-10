@@ -12,6 +12,7 @@ public class TutorialInfo : MonoBehaviour
     public Toggle toggleVisualOff;
     public Toggle toggleHapticOn;
     public Toggle toggleHapticOff;
+    public Toggle togglePhoneVibe;
 
     public Text textBluetoothState;
 
@@ -125,6 +126,7 @@ public class TutorialInfo : MonoBehaviour
 	// and that the audio listener is enabled, and time scale is 1 (normal)
 	public void StartGame()
 	{
+        EffectManager.useAndroidVibe = togglePhoneVibe.isOn;
         SetData();
         Done_GameController.timeOver = false;
 		overlay.SetActive (false);

@@ -263,8 +263,8 @@ public class EffectManager : MonoBehaviour {
     //SerialPort vibePort;
 
 
-    
-     
+    public static bool useAndroidVibe = false;
+
     private void MakeEffect(string loc,EffectOption effect,AudioSource source)
     {
         if (source != null)
@@ -273,7 +273,9 @@ public class EffectManager : MonoBehaviour {
             EffectBulb((float)effect.effectTime,loc);
         if (effect.vibration && Done_GameController.EnabledHapticMode)
             EffectVibration((float)effect.effectTime,loc);
-                                   
+
+
+
     }
 
     private void EffectSpeaker(string str = "Debug")
@@ -317,6 +319,7 @@ public class EffectManager : MonoBehaviour {
         bInstance.Send('1');
         if (useAndroidVibe)
             Vibration.Vibrate(500);
+
         yield return new WaitForSeconds(effectTime);
         bInstance.Send('2');
 
@@ -369,7 +372,7 @@ public class EffectManager : MonoBehaviour {
     AudioSource audioGetBomb;// 폭탄 획득
     AudioSource audioGetBonusScore;// 보너스 점수 획득
     AudioSource audioBeamCollision;// 빔 충돌
-    public bool useAndroidVibe = true;
+    
 
     void SetUp()
     {
