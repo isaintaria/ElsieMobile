@@ -97,6 +97,14 @@ public class TutorialInfo : MonoBehaviour
 
     void Awake()
 	{
+        EffectManager.bulbCount = 0;
+        EffectManager.vibeCount = 0;
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
+        Screen.orientation = ScreenOrientation.AutoRotation;
         Application.targetFrameRate = 60;
         textBluetoothState.text = "Bluetooth Device is Disconnected. Please check device";
         bInstace =  BluetoothAndroidWrapper.getInstance();

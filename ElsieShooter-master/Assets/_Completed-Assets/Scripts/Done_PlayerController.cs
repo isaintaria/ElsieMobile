@@ -49,7 +49,7 @@ public class Done_PlayerController : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log("비행기 Awke");
+       // Debug.Log("비행기 Awke");
     }
 
     public void doFire()
@@ -83,7 +83,7 @@ public class Done_PlayerController : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("비행기 새로 생성됨");
+        //Debug.Log("비행기 새로 생성됨");
         var obj = GameObject.Find("Game Controller/Canvas/Movement Zone");
         touchPad = obj.GetComponent<SimpleTouchPad>();
         touchPad.GetDirection();
@@ -108,6 +108,8 @@ public class Done_PlayerController : MonoBehaviour
 
     private void AttackButton_OnButtonDown()
     {
+
+
         doFire();
     }
 

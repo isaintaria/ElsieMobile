@@ -280,7 +280,7 @@ public class EffectManager : MonoBehaviour {
 
     private void EffectSpeaker(string str = "Debug")
     {
-        Debug.Log(str + "에서  소리 이펙트 발생");
+       // Debug.Log(str + "에서  소리 이펙트 발생");
 
         try
         {   
@@ -305,24 +305,39 @@ public class EffectManager : MonoBehaviour {
 
     private IEnumerator BulbTest(float effectTime)
     {
+        bulbCount++;
         var bInstance = BluetoothAndroidWrapper.getInstance();
+       // Debug.Log("시각 이벤트 발생");
         bInstance.Send('3');
         yield return new WaitForSeconds(effectTime);
-        bInstance.Send('4');
+        if(bulbCount <= 1)
+        {
+            bInstance.Send('4');
+          //  Debug.Log("시각 이벤트 종료");
 
+        }       
+        bulbCount--;
+        Debug.Log("bulbCount : " + bulbCount);
     }
 
+    public static int bulbCount = 0;
+    public static int vibeCount = 0;
     private IEnumerator VibeTest(float effectTime)
     {
-        Debug.Log(effectTime);
+        vibeCount++;
+     //   Debug.Log(effectTime);
         var bInstance = BluetoothAndroidWrapper.getInstance();
         bInstance.Send('1');
         if (useAndroidVibe)
-            Vibration.Vibrate(500);
-
+            Vibration.Vibrate(300);        
         yield return new WaitForSeconds(effectTime);
-        bInstance.Send('2');
-
+        if( vibeCount <= 1 )
+        {
+            bInstance.Send('2');
+            Debug.Log("촉각 이벤트 발생");
+        }          
+        vibeCount--;
+        Debug.Log("vibeCount : " + vibeCount);
     }
 
     public void FirePlayerBeamEffect()
@@ -376,8 +391,6 @@ public class EffectManager : MonoBehaviour {
 
     void SetUp()
     {
-
-
         try
         {
             var sTable = TableManager.Load<PortTable>("PortTable");
@@ -394,8 +407,6 @@ public class EffectManager : MonoBehaviour {
             //vibePort.Parity = Parity.None;
             //vibePort.DataBits = 8;
             //vibePort.Open();
-
-
         }
         catch (System.Exception e)
         {

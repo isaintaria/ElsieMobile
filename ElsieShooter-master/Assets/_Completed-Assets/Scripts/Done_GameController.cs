@@ -260,7 +260,7 @@ public class Done_GameController : MonoBehaviour
 		yield return new WaitForSeconds (startWait);
 		for(int i = 0; i < levelTable.Datas.Length; i++)
 		{
-            Debug.Log("웨이브 시작");
+            //Debug.Log("웨이브 시작");
             var ds = levelTable.Datas[i];
             SpeedWeight = ds.speed; // 스피드 업
             // 레벨테이블의 아이템의 전체 수가 한번의 사이클
@@ -283,7 +283,7 @@ public class Done_GameController : MonoBehaviour
             yield return new WaitForSeconds(waveWait);
         }
 
-        Debug.Log("게임 종료됨");
+      //  Debug.Log("게임 종료됨");
 	}
 
     private List<int> SetHazardWave(LevelProperty ds)

@@ -31,7 +31,7 @@ public class SimpleTouchPad : MonoBehaviour,IPointerDownHandler, IDragHandler, I
             pointerID = eventData.pointerId;
             origin = eventData.position;
 
-            Debug.Log(eventData.position.normalized);
+     //       Debug.Log(eventData.position.normalized);
 
         }
             
@@ -46,7 +46,7 @@ public class SimpleTouchPad : MonoBehaviour,IPointerDownHandler, IDragHandler, I
         }
 
 
-        Debug.Log(eventData.position.normalized);
+   //     Debug.Log(eventData.position.normalized);
     }
     public void OnPointerUp(PointerEventData eventData)
     {

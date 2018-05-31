@@ -74,7 +74,7 @@ public class Done_DestroyByContact : MonoBehaviour
         {
             if( gameObject.name.Contains("Green") )
             {
-                Debug.Log("상자 생성");
+                //Debug.Log("상자 생성");
                 Instantiate(gameController.itemObject, transform.position, transform.rotation);
             }            
             Instantiate(explosion, transform.position, transform.rotation);

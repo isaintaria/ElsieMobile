@@ -56,7 +56,7 @@ public class BluetoothAndroidWrapper
     {
         if( !device.IsConnected )
         {
-            Debug.Log("Device Connect..... " + HW_ID);
+            //Debug.Log("Device Connect..... " + HW_ID);
             device.connect();
             
         }
